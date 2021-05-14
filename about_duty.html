@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>社会责任</title>
+    <link
+      rel="icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="js/bootstrap-4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/a_duty.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row pll">
+        <!-- 左侧导航 -->
+        <div
+          class="col-lg-2 d-lg-flex flex-lg-column left-nav d-none d-lg-block"
+        >
+          <div class="position-fixed">
+            <a class="navbar-brand logo m-lg-4" href="index.php"
+              ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+              旧8克</a
+            >
+            <a href="http://localhost/cafe/index.php" class="nav-link house"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/house.svg"
+                alt=""
+              />
+              <span class="nav-text">首页</span></a
+            >
+
+            <a
+              href="#drinkCollapse"
+              data-toggle="collapse"
+              class="nav-link drink"
+              aria-expanded="false"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/cup.svg"
+                alt="" />
+              <span class="nav-text">饮品</span>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#drinkCollapse"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+              >
+                <img
+                  src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                  alt=""
+                /></button
+            ></a>
+
+            <div class="collapse navbar-collapse" id="drinkCollapse">
+              <ul class="navbar-nav ml-lg-4">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=0&id=0"
+                    >全部</a
+                  >
+                </li>
+                <?php foreach($drinks as $k =>$drink):?>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=0&id=<?php echo $drink['drink_id'];?>"
+                    ><?php echo $drink['name'];?></a
+                  >
+                </li>
+                <?php endforeach;?>
+              </ul>
+            </div>
+
+            <a href="#foodCollapse" data-toggle="collapse" class="nav-link food"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/cake.svg"
+                alt="" />
+              <span class="nav-text">美食</span>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#foodCollapse"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+              >
+                <img
+                  src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                  alt=""
+                /></button
+            ></a>
+
+            <div class="collapse navbar-collapse" id="foodCollapse">
+              <ul class="navbar-nav ml-lg-4">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=1&id=0"
+                    >全部</a
+                  >
+                </li>
+                <?php foreach($foods as $k =>$food):?>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=1&id=<?php echo $food['food_id'];?>"
+                    ><?php echo $food['name'];?></a
+                  >
+                </li>
+                <?php endforeach;?>
+              </ul>
+            </div>
+
+            <div
+              class="left-nav-title position-fixed"
+              style="left: 30px; bottom: 50px"
+            >
+              <h5 class="mt-lg-5 pt-lg-4">心情惬意,</h5>
+              <h5>来杯咖啡吧 ☕</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="col-lg-10 right">
+          <!-- 导航 -->
+          <div class="topNav">
+            <!-- 导航左,fixed -->
+            <nav class="navbar position-fixed navbar-expand-md navbar-light">
+              <a class="navbar-brand logo d-lg-none" href="index.php"
+                ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+                旧8克</a
+              >
+              <button
+                class="navbar-toggler position-absolute"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-collapse"
+                aria-controls="#navbar-collapse"
+                aria-expanded="false"
+                style="left: 150px"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div
+                class="collapse navbar-collapse bg-white"
+                id="navbar-collapse"
+              >
+                <ul class="navbar-nav px-2">
+                  <li class="nav-item active">
+                    <a href="http://localhost/cafe/origin.php" class="nav-link">咖啡起源</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      role="button"
+                      data-toggle="dropdown"
+                    >
+                      关于我们
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="about_index.php"
+                        >星巴克在中国</a
+                      >
+                      <a class="dropdown-item" href="about_duty.php"
+                        >社会责任</a
+                      >
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link" id="contact">联系我们 </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- 导航右 -->
+            <div class="navbar-right position-fixed">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle  <?php echo $username_isShow?>"
+                  role="button"
+                  data-toggle="dropdown"
+                  ><img
+                    class=""
+                    src="http://localhost/cafe/imgs/svg/people.svg"
+                    alt=""
+                  />
+                  <span class="nav-text"><?php echo $username?></span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="login.php">切换账号</a>
+                  <a class="dropdown-item" href="exit.php?about=2">退出登录</a>
+                </div>
+              </div>
+
+              <a
+                href="http://localhost/cafe/login.php"
+                class="nav-link  text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                ><img
+                  class=""
+                  src="http://localhost/cafe/imgs/svg/user.svg"
+                  alt=""
+                />
+                <span class="nav-text"><?php echo $username?></span></a
+              >
+              <a
+                href="http://localhost/cafe/register.php"
+                class="register text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                >注册</a
+              >
+            </div>
+
+            <!-- 背景 -->
+            <div class="navbar-bg position-fixed"></div>
+          </div>
+
+          <!-- 内容 -->
+          <div class="content">
+            <div
+              class="bg position-relative d-flex align-items-center justify-content-center p-5"
+            >
+              <div class="image position-absolute"></div>
+              <div class="text position-relative text-white">
+                <h1 class="font-weight-bold text-center">社会责任</h1>
+                <h5>取得了令人欣慰的表现</h5>
+                <p>
+                  我们的2016年全球社会影响绩效报告标志着我们作为一家公司取得的进步，一家通过人文关怀推动绩效增长的公司。在全球75个国家／地区中330,000多位合作伙伴的共同努力下，我们不仅超越了为帮助我们服务的社区所定的大部分目标，还在财务业绩上再创新高。我们与保护国际组织（Conservation
+                  International）、消除美国饥饿组织（Feeding
+                  America）以及全球数百个社区服务合作伙伴等组织保持着持久的战略伙伴关系，这让我们能够善加利用我们的业务规模。
+                </p>
+                <p>
+                  我们通过坚定果断的决策和集体行动共同取得了这种进步，并对未来的发展怀抱着新的远大志向。
+                </p>
+                <div class="position-relative">
+                  <br /><br />
+                  <p class="position-absolute" style="right: 0; top: 0">
+                    Kevin Johnson <br />
+                    总裁兼首席执行官
+                  </p>
+                  <h5>前进之路</h5>
+                </div>
+
+                <p>
+                  我们将重点关注四个可让我们的承诺和业务规模发挥最大作用的领域：
+                </p>
+                <ul>
+                  <li>
+                    通过尽我们的职责改善全球咖啡社区中100万人的生活，使咖啡成为世界上第一个可持续农产品
+                  </li>
+                  <li>构建并运营全球规模最大的绿色零售业务</li>
+                  <li>为100万人创造就业机会</li>
+                  <li>强化社区，欢迎所有人的到来并扩大重大事件的影响力</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="shadow duty p-5">
+              <h2 class="text-center mb-4">responsibility</h2>
+
+              <?php foreach($duties as $k =>$duty): ?>
+                <a
+                  href="javascript:;"
+                  class="card d-flex flex-row mb-4 text-decoration-none text-body position-relative" style="overflow:hidden;"
+                >
+                  <div style="flex: 1" class="img">
+                    <div
+                      style="background-image: url('<?php echo $duty["img"];?>')"
+                    ></div>
+
+                  </div>
+
+                  <div class="" style="flex: 2">
+                    <h4 class="m-3">
+                      <?php echo $duty['title'];?>
+                    </h4>
+                    <p class="m-3 d-none d-sm-block">
+                      <?php echo $duty['content'];?>
+                    </p>
+                  </div>
+                </a>
+              
+
+              <?php endforeach;?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap-4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>新闻管理-添加</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://localhost/news/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://localhost/news/css/bootstrap-responsive.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://localhost/news/css/style.css"
+    />
+    <script
+      type="text/javascript"
+      src="http://localhost/news/js/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://localhost/news/js/kindeditor/kindeditor-min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://localhost/news/js/kindeditor/lang/zh_CN.js"
+    ></script>
+  </head>
+  <body>
+    <form
+      action="drink_edit2.php?id=<?php echo $id;?>"
+      method="post"
+      class="definewidth m20"
+    >
+      <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+          <td width="10%" class="tableleft">饮品类名</td>
+          <td>
+            <input type="text" name="name" value="<?php echo $name;?>" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="tableleft"></td>
+          <td colspan="3">
+            <input type="submit" class="btn btn-primary" value="修改" />
+            &nbsp;&nbsp;<input
+              type="button"
+              class="btn btn-success"
+              name="backid"
+              id="backid"
+              value="返回"
+            />
+            &nbsp;&nbsp;<font color="red"></font>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+<script type="text/javascript">
+  //返回按钮事件
+  $("#backid").click(function () {
+    location = "drink.php";
+  });
+</script>

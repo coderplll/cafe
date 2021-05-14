@@ -1,0 +1,111 @@
+@media screen and (max-width: 576px) {
+  .card-columns {
+    column-count: 1;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 576px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+@media screen and (min-width: 992px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+.pll {
+  height: 100vh;
+}
+.pll .left-nav {
+  background-color: #f4f6fb;
+  z-index: 3;
+}
+.pll .left-nav .logo {
+  color: black;
+  opacity: 1;
+}
+.pll .left-nav a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .left-nav :hover {
+  opacity: 1;
+}
+.pll .right .topNav {
+  height: 70px;
+}
+.pll .right .topNav .navbar {
+  z-index: 4;
+  height: 68px;
+}
+.pll .right .topNav .navbar .logo {
+  color: black;
+  opacity: 1;
+}
+.pll .right .topNav .navbar a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .right .topNav .navbar :hover {
+  opacity: 1;
+}
+.pll .right .topNav .navbar-right {
+  right: 10px;
+  top: 4px;
+  height: 40px;
+  line-height: 40px;
+  z-index: 4;
+}
+.pll .right .topNav .navbar-right .register {
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 40%;
+}
+.pll .right .topNav .navbar-right a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .right .topNav .navbar-right :hover {
+  opacity: 1;
+}
+.pll .right .topNav .navbar-bg {
+  z-index: 2;
+  left: 0px;
+  background-color: #fff;
+  height: 69px;
+  width: 100%;
+  border-bottom: 1px solid rgba(160, 197, 232, 0.8);
+}
+.pll .right .content {
+  padding-bottom: 300px;
+}
+.pll .right .content .bg {
+  height: 300px;
+  width: 100%;
+}
+.pll .right .content .bg .text {
+  width: 90%;
+  z-index: 1;
+}
+.pll .right .content .bg .image {
+  background-image: url(http://localhost/cafe/imgs/tree/bg.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  z-index: 0;
+}
+.pll .right .content .bg .image::before {
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.7) 100%);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+.pll .right .content .our h2 {
+  color: #c2a661;
+}

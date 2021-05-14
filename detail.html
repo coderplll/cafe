@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><?php echo $title;?></title>
+    <link
+      rel="icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="js/bootstrap-4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/detail.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row pll">
+        <!-- 左侧导航 -->
+        <div
+          class="col-lg-2 d-lg-flex flex-lg-column left-nav d-none d-lg-block"
+        >
+          <div class="position-fixed">
+            <a class="navbar-brand logo m-lg-4" href="index.php"
+              ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+              旧8克</a
+            >
+
+            <a
+              href="http://localhost/cafe/category.php?category=0&id=<?php echo $drink_detail['drink_id'];?>"
+              class="nav-link drink mt-5 <?php echo $drink_detail_isShow?>"
+            >
+              <!-- <button class="navbar-toggler" type="button"> -->
+              <img
+                src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                style="transform: rotate(180deg)"
+              />
+              <!-- </button> -->
+              <span class="nav-text"><?php echo $drink_name?></span>
+            </a>
+            <a
+              href="http://localhost/cafe/category.php?category=1&id=<?php echo $food_detail_food_id;?>"
+              class="nav-link drink mt-5 <?php echo $food_detail_isShow?>"
+            >
+              <!-- <button class="navbar-toggler" type="button"> -->
+              <img
+                src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                style="transform: rotate(180deg)"
+              />
+              <!-- </button> -->
+              <span class="nav-text"><?php echo $food_name?></span>
+            </a>
+
+            <div
+              class="left-nav-title position-fixed"
+              style="left: 30px; bottom: 50px"
+            >
+              <h5 class="mt-lg-5 pt-lg-4">心情惬意,</h5>
+              <h5>来杯咖啡吧 ☕</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div
+          class="col-lg-10 right"
+          style="<?php echo isset($_GET['category'])&&$_GET['category']==1?'background-color: #f7f7f7':'';?>"
+        >
+          <!-- 导航 -->
+          <div class="topNav">
+            <!-- 导航左,fixed -->
+            <nav class="navbar position-fixed navbar-expand-md navbar-light">
+              <a class="navbar-brand logo d-lg-none" href="index.php"
+                ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+                旧8克</a
+              >
+              <button
+                class="navbar-toggler position-absolute"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-collapse"
+                aria-controls="#navbar-collapse"
+                aria-expanded="false"
+                style="left: 150px"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div
+                class="collapse navbar-collapse bg-white"
+                id="navbar-collapse"
+              >
+                <ul class="navbar-nav px-2">
+                  <li class="nav-item active">
+                    <a href="http://localhost/cafe/origin.php" class="nav-link"
+                      >咖啡起源</a
+                    >
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      role="button"
+                      data-toggle="dropdown"
+                    >
+                      关于我们
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="about_index.php"
+                        >星巴克在中国</a
+                      >
+                      <a class="dropdown-item" href="about_duty.php"
+                        >社会责任</a
+                      >
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link" id="contact">联系我们 </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- 导航右 -->
+            <div class="navbar-right position-fixed">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle <?php echo $username_isShow?>"
+                  role="button"
+                  data-toggle="dropdown"
+                  ><img
+                    class=""
+                    src="http://localhost/cafe/imgs/svg/people.svg"
+                    alt=""
+                  />
+                  <span class="nav-text"><?php echo $username?></span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="login.php">切换账号</a>
+                  <?php if(isset($_GET['drink_detail_id'])) { ?>
+                  <a
+                    class="dropdown-item"
+                    href="exit.php?drink_detail_id=<?php echo $_GET['drink_detail_id'];?>"
+                    >退出登录</a
+                  >
+                  <?php }?>
+                  <?php if(isset($_GET['food_detail_id'])) { ?>
+                  <a
+                    class="dropdown-item"
+                    href="exit.php?food_detail_id=<?php echo $_GET['food_detail_id'];?>"
+                    >退出登录</a
+                  >
+                  <?php }?>
+                </div>
+              </div>
+
+              <a
+                href="http://localhost/cafe/login.php"
+                class="nav-link text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                ><img
+                  class=""
+                  src="http://localhost/cafe/imgs/svg/user.svg"
+                  alt=""
+                />
+                <span class="nav-text"><?php echo $username?></span></a
+              >
+              <a
+                href="http://localhost/cafe/register.php"
+                class="register text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                >注册</a
+              >
+            </div>
+
+            <!-- 背景 -->
+            <div class="navbar-bg position-fixed"></div>
+          </div>
+
+          <!-- 内容 -->
+          <div class="content">
+            <div
+              class="
+                media
+                position-relative
+                m-4
+                row
+                <?php
+                echo
+                $drink_detail_isShow?>
+              "
+            >
+              <!--缩略图 设置宽度为 10rem,与右侧的文字留够间隔-->
+              <img
+                src="<?php echo $drink_detail['img'];?>"
+                style="width: 10rem"
+                class="img-thumbnail mr-5 col-12 col-sm-5"
+                alt="..."
+              />
+              <div class="media-body col-sm-7 py-3 py-md-5">
+                <!--标题中价格文字采用 warning 色并加粗-->
+                <p class="mt-0 mb-1 media-title"><?php echo $drink_name;?></p>
+                <h5 class="mt-0 mb-1"><?php echo $drink_detail_name;?></h5>
+                <p class="text-muted">
+                  <?php echo $drink_detail_detail;?>
+                </p>
+                <a class="stretched-link" href="">查看详情</a>
+              </div>
+            </div>
+
+            <div
+              class="
+                media
+                position-relative
+                m-4
+                row
+                <?php
+                echo
+                $food_detail_isShow?>
+              "
+            >
+              <!--缩略图 设置宽度为 10rem,与右侧的文字留够间隔-->
+              <img
+                src="<?php echo $food_detail['img'];?>"
+                style="width: 10rem"
+                class="img-thumbnail mr-5 col-12 col-sm-5"
+                alt="..."
+              />
+              <div class="media-body col-sm-7 py-3 py-md-5">
+                <!--标题中价格文字采用 warning 色并加粗-->
+                <p class="mt-0 media-title"><?php echo $food_name;?></p>
+                <h5 class="mt-0 mb-2"><?php echo $food_detail_name;?></h5>
+                <p class="text-muted">
+                  <?php echo $food_detail['detail'];?>
+                </p>
+                <!-- <a class="stretched-link" href="">查看详情</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap-4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/detail.js"></script>
+  </body>
+</html>

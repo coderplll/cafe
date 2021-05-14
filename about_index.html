@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>星巴克在中国</title>
+    <link
+      rel="icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="./imgs/favicon.png"
+      mce_href="./imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="js/bootstrap-4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/a_index.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row pll">
+        <!-- 左侧导航 -->
+        <div
+          class="col-lg-2 d-lg-flex flex-lg-column left-nav d-none d-lg-block"
+        >
+          <div class="position-fixed">
+            <a class="navbar-brand logo m-lg-4" href="index.php"
+              ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+              旧8克</a
+            >
+            <a href="http://localhost/cafe/index.php" class="nav-link house"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/house.svg"
+                alt=""
+              />
+              <span class="nav-text">首页</span></a
+            >
+
+            <a
+              href="#drinkCollapse"
+              data-toggle="collapse"
+              class="nav-link drink"
+              aria-expanded="false"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/cup.svg"
+                alt="" />
+              <span class="nav-text">饮品</span>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#drinkCollapse"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+              >
+                <img
+                  src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                  alt=""
+                /></button
+            ></a>
+
+            <div class="collapse navbar-collapse" id="drinkCollapse">
+              <ul class="navbar-nav ml-lg-4">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=0&id=0"
+                    >全部</a
+                  >
+                </li>
+                <?php foreach($drinks as $k =>$drink):?>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=0&id=<?php echo $drink['drink_id'];?>"
+                    ><?php echo $drink['name'];?></a
+                  >
+                </li>
+                <?php endforeach;?>
+              </ul>
+            </div>
+
+            <a href="#foodCollapse" data-toggle="collapse" class="nav-link food"
+              ><img
+                class="pb-lg-2"
+                src="http://localhost/cafe/imgs/svg/cake.svg"
+                alt="" />
+              <span class="nav-text">美食</span>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#foodCollapse"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+              >
+                <img
+                  src="http://localhost/cafe/imgs/svg/chevron-right.svg"
+                  alt=""
+                /></button
+            ></a>
+
+            <div class="collapse navbar-collapse" id="foodCollapse">
+              <ul class="navbar-nav ml-lg-4">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=1&id=0"
+                    >全部</a
+                  >
+                </li>
+                <?php foreach($foods as $k =>$food):?>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="http://localhost/cafe/category.php?category=1&id=<?php echo $food['food_id'];?>"
+                    ><?php echo $food['name'];?></a
+                  >
+                </li>
+                <?php endforeach;?>
+              </ul>
+            </div>
+
+            <div
+              class="left-nav-title position-fixed"
+              style="left: 30px; bottom: 50px"
+            >
+              <h5 class="mt-lg-5 pt-lg-4">心情惬意,</h5>
+              <h5>来杯咖啡吧 ☕</h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="col-lg-10 right">
+          <!-- 导航 -->
+          <div class="topNav">
+            <!-- 导航左,fixed -->
+            <nav class="navbar position-fixed navbar-expand-md navbar-light">
+              <a class="navbar-brand logo d-lg-none" href="index.php"
+                ><img src="http://localhost/cafe/imgs/svg/logo.svg" alt="" />
+                旧8克
+              </a>
+              <button
+                class="navbar-toggler position-absolute"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar-collapse"
+                aria-controls="#navbar-collapse"
+                aria-expanded="false"
+                style="left: 150px"
+              >
+                <span   class="navbar-toggler-icon"></  span>
+              </button>
+
+              <div
+                class="collapse navbar-collapse bg-white"
+                id="navbar-collapse"
+              >
+                <ul class="navbar-nav px-2">
+                  <li class="nav-item active">
+                    <a href="http://localhost/cafe/origin.php" class="nav-link">咖啡起源</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      href="#"
+                      class="nav-link dropdown-toggle"
+                      role="button"
+                      data-toggle="dropdown"
+                    >
+                      关于我们
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="about_index.php"
+                        >星巴克在中国</a
+                      >
+                      <a class="dropdown-item" href="about_duty.php"
+                        >社会责任</a
+                      >
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link" id="contact">联系我们 </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- 导航右 -->
+            <div class="navbar-right position-fixed">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle  <?php echo $username_isShow?>"
+                  role="button"
+                  data-toggle="dropdown"
+                  ><img
+                    class=""
+                    src="http://localhost/cafe/imgs/svg/people.svg"
+                    alt=""
+                  />
+                  <span class="nav-text"><?php echo $username?></span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="login.php">切换账号</a>
+                  <a class="dropdown-item" href="exit.php?about=1">退出登录</a>
+                </div>
+              </div>
+
+              <a
+                href="http://localhost/cafe/login.php"
+                class="nav-link  text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                ><img
+                  class=""
+                  src="http://localhost/cafe/imgs/svg/user.svg"
+                  alt=""
+                />
+                <span class="nav-text"><?php echo $username?></span></a
+              >
+              <a
+                href="http://localhost/cafe/register.php"
+                class="register text-body <?php echo $login_isShow?>"
+                style="display: inline-block"
+                >注册</a
+              >
+            </div>
+
+            <!-- 背景 -->
+            <div class="navbar-bg position-fixed"></div>
+          </div>
+
+          <!-- 内容 -->
+          <div class="content">
+            <div
+              class="bg position-relative d-flex align-items-center justify-content-center"
+            >
+              <div class="image position-absolute"></div>
+              <div class="text position-relative text-center text-white">
+                <h1 class="font-weight-bold">星巴克在中国</h1>
+                <p>
+                  我们希望通过每一杯咖啡，将星巴克的咖啡传承与独特的咖啡体验带给我们的顾客。
+                </p>
+              </div>
+            </div>
+
+            <div class="shadow my-3">
+              <!--“卡片”图文单元-->
+              <div class="card-columns mt-3 p-4">
+                <?php foreach($abouts as $k =>$about): ?>
+                <div class="mycard">
+                  <div class="text-center mb-3">
+                    <?php echo $about['wrapper_title'];?>
+                  </div>
+                  <div class="card">
+                    <div
+                      class="wrapper position-relative text-center text-white pb-3"
+                    >
+                      <img
+                        src="<?php echo $about['about_img'];?>"
+                        class="img-fluid position-absolute"
+                        alt="..."
+                      />
+                      <div class="text position-relative">
+                        <h2><?php echo $about['about_number'];?></h2>
+                        <p><?php echo $about['about_title'];?></p>
+                      </div>
+                    </div>
+
+                    <!--“卡片”体-->
+                    <div class="card-body">
+                      <!--“卡片”文字-->
+                      <p class="card-text text-muted">
+                        <?php echo $about['about_content'];?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <?php endforeach;?>
+              </div>
+            </div>
+
+            <div class="shadow our p-5">
+              <h2 class="text-center mb-4">我们的使命和价值观</h2>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <p>激发并孕育人文精神，每人，每杯，每个社区。</p>
+                  <p>
+                    以我们的伙伴、咖啡和顾客为核心，我们努力践行以下价值观：
+                  </p>
+                  <ul>
+                    <li>
+                      营造一种温暖而有归属感的文化，欣然接纳和欢迎每一个人。
+                    </li>
+                    <li>
+                      积极行动，勇于挑战现状，打破陈规，以创新方式实现公司与伙伴的共同成长。
+                    </li>
+                    <li>
+                      在每个连接彼此的当下，我们专注投入，开诚相见，互尊互敬。
+                    </li>
+                    <li>对于每件事，我们都竭尽所能，做到最好，敢于担当。</li>
+                  </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 d-flex align-items-center">
+                  <img
+                    src="http://localhost/cafe/imgs/about_inChina/0.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="shadow news p-5">
+              <h2 class="text-center mb-4">最新新闻</h2>
+              <div class="row">
+                <?php foreach($news as $k =>$new): if(!(($k+1)%2==0)){?>
+                <div class="col-lg-12">
+                  <div class="media position-relative m-3">
+                    <!--缩略图 设置宽度为 10rem,与右侧的文字留够间隔-->
+                    <img
+                      src="<?php echo $new['img'];?>"
+                      style="width: 10rem"
+                      class="img-thumbnail mr-3"
+                      alt="..."
+                    />
+                    <div class="media-body">
+                      <!--标题中价格文字采用 warning 色并加粗-->
+                      <h5 class="mt-0 mb-1">
+                        <?php echo $new['news_title'];?>
+                      </h5>
+                      <h5 class="mt-0 mb-1">
+                        <?php echo $new['news_title2'];?>
+                      </h5>
+                      <p class="text-muted">
+                        <?php echo $new['news_content'];?>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <?php }else{?>
+                <div class="col-lg-12">
+                  <div class="media position-relative m-3">
+                    <!--缩略图 设置宽度为 10rem,与右侧的文字留够间隔-->
+                    <div class="media-body">
+                      <!--标题中价格文字采用 warning 色并加粗-->
+                      <h5 class="mt-0 mb-1">
+                        <?php echo $new['news_title'];?>
+                      </h5>
+                      <h5 class="mt-0 mb-1">
+                        <?php echo $new['news_title2'];?>
+                      </h5>
+                      <p class="text-muted">
+                        <?php echo $new['news_content'];?>
+                      </p>
+                    </div>
+                    <img
+                      src="<?php echo $new['img'];?>"
+                      style="width: 10rem"
+                      class="img-thumbnail mr-3"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+
+                <?php } endforeach;?>
+              </div>
+            </div>
+
+            <div class="shadow aboutus p-5">
+              <h2 class="text-center mb-4">关于我们</h2>
+              <div class="accordion" id="accordionExample">
+                <?php foreach($us as $k =>$me): ?>
+                <div class="card">
+                  <div class="card-header" id="heading<?php echo $me['id']?>">
+                    <h2 class="mb-0">
+                      <button
+                        class="btn btn-block text-left collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapse<?php echo $me['id'];?>"
+                        aria-expanded="false"
+                        aria-controls="collapse<?php echo $me['id'];?>"
+                      >
+                        <?php echo $me['title'];?>
+                      </button>
+                    </h2>
+                  </div>
+                  <div
+                    id="collapse<?php echo $me['id'];?>""
+                    class="collapse <?php if($k==0){echo 'show';}?>"
+                    aria-labelledby="heading<?php echo $me['id']?>"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <?php echo $me['content'];?>
+                    </div>
+                  </div>
+                </div>
+                <?php endforeach;?>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap-4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

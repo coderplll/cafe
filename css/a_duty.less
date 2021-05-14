@@ -1,0 +1,131 @@
+.pll {
+  height: 100vh;
+  .left-nav {
+    background-color: #f4f6fb;
+    z-index: 3;
+
+    .logo {
+      color: black;
+      opacity: 1;
+    }
+
+    a {
+      color: black;
+      opacity: 0.7;
+    }
+    :hover {
+      opacity: 1;
+    }
+  }
+
+  .right {
+    .topNav {
+      height: 70px;
+
+      .navbar {
+        z-index: 4;
+        height: 68px;
+
+        .logo {
+          color: black;
+          opacity: 1;
+        }
+        a {
+          color: black;
+          opacity: 0.7;
+        }
+        :hover {
+          opacity: 1;
+        }
+      }
+
+      .navbar-right {
+        right: 10px;
+        top: 4px;
+        height: 40px;
+        line-height: 40px;
+        z-index: 4;
+        .register {
+          text-align: center;
+          text-decoration: none;
+          width: 50px;
+          border: 1px solid black;
+          border-radius: 40%;
+        }
+        a {
+          color: black;
+          opacity: 0.7;
+        }
+        :hover {
+          opacity: 1;
+        }
+      }
+
+      .navbar-bg {
+        z-index: 2;
+        left: 0px;
+        background-color: #fff;
+        height: 69px;
+        width: 100%;
+        border-bottom: 1px solid rgba(160, 197, 232, 0.8);
+      }
+    }
+
+    .content {
+      padding-bottom: 300px;
+      .bg {
+        height: 100%;
+        width: 100%;
+        .text {
+          // height: 88px;
+          width: 90%;
+          z-index: 1;
+        }
+        .image {
+          background-image: url(http://localhost/cafe/imgs/about_duty/bg/0.jpg);
+          background-position: 50% 50%;
+          background-size: cover;
+          height: 100%;
+          width: 100%;
+          bottom: 0;
+          z-index: 0;
+        }
+        .image::before {
+          background-image: linear-gradient(
+            -180deg,
+            rgba(0, 0, 0, 0.35) 0%,
+            rgba(0, 0, 0, 0.7) 81%
+          );
+          content: "";
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          z-index: 0;
+        }
+      }
+
+      .duty {
+        h2 {
+          color: #c2a661;
+        }
+        a {
+          height: 192px;
+          box-shadow: 0 1px 1px 1px rgb(0 0 0 / 12%);
+          .img {
+            div {
+              background-position: 50% 50%;
+              background-size: cover;
+              height: 100%;
+              width: 100%;
+              bottom: 0;
+            }
+          }
+        }
+        a:hover {
+          left: 2px;
+          box-shadow: 0 1px 1px 1px rgb(0 0 0 / 12%);
+        }
+      }
+    }
+  }
+}

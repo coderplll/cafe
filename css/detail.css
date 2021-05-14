@@ -1,0 +1,79 @@
+.pll {
+  height: 100vh;
+}
+.pll .left-nav {
+  z-index: 3;
+  background-color: #f4f6fb;
+}
+.pll .left-nav .logo {
+  color: black;
+  opacity: 1;
+}
+.pll .left-nav a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .left-nav :hover {
+  opacity: 1;
+}
+.pll .left-nav .nav-link {
+  padding-left: 0px;
+}
+.pll .right .topNav {
+  height: 70px;
+}
+.pll .right .topNav .navbar {
+  z-index: 4;
+  height: 68px;
+}
+.pll .right .topNav .navbar .logo {
+  color: black;
+  opacity: 1;
+}
+.pll .right .topNav .navbar a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .right .topNav .navbar :hover {
+  opacity: 1;
+}
+.pll .right .topNav .navbar-right {
+  right: 10px;
+  top: 4px;
+  height: 40px;
+  line-height: 40px;
+  z-index: 4;
+}
+.pll .right .topNav .navbar-right .register {
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 40%;
+}
+.pll .right .topNav .navbar-right a {
+  color: black;
+  opacity: 0.7;
+}
+.pll .right .topNav .navbar-right :hover {
+  opacity: 1;
+}
+.pll .right .topNav .navbar-bg {
+  z-index: 2;
+  left: 0px;
+  background-color: #fff;
+  height: 69px;
+  width: 100%;
+  border-bottom: 1px solid rgba(160, 197, 232, 0.8);
+}
+.pll .right .content .media .media-body .media-title {
+  color: #c2a661;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pll .right .content .media .media-body h5 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>管理系统大布局</title>
+    <link rel="stylesheet" href="./layui/css/layui.css" />
+  </head>
+  <body>
+    <div class="layui-layout layui-layout-admin">
+      <!-- 头部区域（可配合layui 已有的水平导航） -->
+      <div class="layui-header">
+        <div class="layui-logo">旧8克后台管理</div>
+        <ul class="layui-nav layui-layout-left">
+          <li class="layui-nav-item"><a href="">nav 1</a></li>
+          <li class="layui-nav-item"><a href="">nav 2</a></li>
+          <li class="layui-nav-item"><a href="">nav 3</a></li>
+          <li class="layui-nav-item">
+            <a href="javascript:;">nav groups</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">menu 11</a></dd>
+              <dd><a href="">menu 22</a></dd>
+              <dd><a href="">menu 33</a></dd>
+            </dl>
+          </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item">
+            <a href="javascript:;">
+              <img
+                src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
+                class="layui-nav-img"
+              />
+              tester
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="">set 1</a></dd>
+              <dd><a href="">set 2</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="">Sign out</a></li>
+        </ul>
+      </div>
+
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="drink.php">饮品管理</a>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">饮品分类</a>
+
+              <dl class="layui-nav-child">
+                <?php foreach($drinks as $k =>$drink):?>
+                <dd>
+                  <a href="javascript:;"
+                    >&nbsp&nbsp<?php echo $drink['name'];?></a
+                  >
+                </dd>
+                <?php endforeach;?>
+              </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed layui-this">
+              <a class="" href="food.php">美食管理</a>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">美食分类</a>
+
+              <dl class="layui-nav-child">
+                <?php foreach($foods as $k =>$food):?>
+                <dd>
+                  <a href="javascript:;"
+                    >&nbsp&nbsp<?php echo $food['name'];?></a
+                  >
+                </dd>
+                <?php endforeach;?>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px">
+          <table class="layui-hide" id="test" lay-filter="test"></table>
+        </div>
+      </div>
+
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        底部固定区域
+      </div>
+    </div>
+
+    <script src="./layui/layui.js"></script>
+
+    <script type="text/html" id="toolbarDemo">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">
+          获取选中行数据
+        </button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">
+          获取选中数目
+        </button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">
+          验证是否全选
+        </button>
+        <a href="food_add.html" class="layui-btn layui-btn-sm" lay-event="add">
+          添加数据
+        </a>
+      </div>
+    </script>
+
+    <script type="text/html" id="barDemo">
+      <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"
+        >删除</a
+      >
+    </script>
+
+    <script>
+      layui.use("table", function () {
+        var table = layui.table;
+        var laypage = layui.laypage;
+
+        table.render({
+          elem: "#test",
+          url: "json/food.php",
+          toolbar: "#toolbarDemo", //开启头部工具栏，并为其绑定左侧模板
+          defaultToolbar: [
+            "filter",
+            "exports",
+            "print",
+            {
+              //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+              title: "提示",
+              layEvent: "LAYTABLE_TIPS",
+              icon: "layui-icon-tips",
+            },
+          ],
+          title: "饮品管理数据表",
+
+          cols: [
+            [
+              { type: "checkbox", fixed: "left" },
+              {
+                field: "food_id",
+                title: "ID",
+                width: 80,
+                fixed: "left",
+                unresize: true,
+                sort: true,
+              },
+              { field: "name", title: "美食分类", width: 150, edit: "text" },
+              {
+                fixed: "right",
+                title: "操作",
+                toolbar: "#barDemo",
+                width: 150,
+              },
+            ],
+          ],
+          page: true,
+          done: function (res, curr, count) {
+            //如果是异步请求数据方式，res即为你接口返回的信息。
+            //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+            laypage.render({
+              elem: "layui-table-page1", //注意，不用加 # 号
+              count: res.data.length, //数据总数，从服务端得到
+              // limit: 10,
+              curr: curr,
+              layout: ["prev", "page", "next", "count", "refresh", "limit"],
+            });
+            // console.log(res);
+
+            //得到当前页码
+            // console.log(curr);
+
+            //得到数据总量
+            // console.log(res.data.length);
+          },
+        });
+
+        //头工具栏事件
+        table.on("toolbar(test)", function (obj) {
+          var checkStatus = table.checkStatus(obj.config.id);
+          switch (obj.event) {
+            case "getCheckData":
+              var data = checkStatus.data;
+              layer.alert(JSON.stringify(data));
+              break;
+            case "getCheckLength":
+              var data = checkStatus.data;
+              layer.msg("选中了：" + data.length + " 个");
+              break;
+            case "isAll":
+              layer.msg(checkStatus.isAll ? "全选" : "未全选");
+              break;
+
+            //自定义头工具栏右侧图标 - 提示
+            case "LAYTABLE_TIPS":
+              layer.alert("这是工具栏右侧自定义的一个图标按钮");
+              break;
+          }
+        });
+
+        //监听行工具事件
+        table.on("tool(test)", function (obj) {
+          var data = obj.data;
+          // console.log(data);
+          var id = data.food_id;
+          if (obj.event === "del") {
+            layer.confirm("真的删除行么", function (index) {
+              obj.del();
+              location.assign("food_delete.php?id=" + id);
+              layer.close(index);
+            });
+          } else if (obj.event === "edit") {
+            location.assign("food_edit.php?id=" + id);
+            // layer.prompt(
+            //   {
+            //     formType: 2,
+            //     value: data.email,
+            //   },
+            //   function (value, index) {
+            //     obj.update({
+            //       email: value,
+            //     });
+            //     layer.close(index);
+            //   }
+            // );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+.pll {
+  height: 100vh;
+  .left-nav {
+    z-index: 3;
+    background-color: #f4f6fb;
+
+    .logo {
+      color: black;
+      opacity: 1;
+    }
+
+    a {
+      color: black;
+      opacity: 0.7;
+    }
+    :hover {
+      opacity: 1;
+    }
+  }
+
+  .right {
+    // background-color: #f7f7f7;
+    .topNav {
+      height: 70px;
+
+      .navbar {
+        z-index: 4;
+        height: 68px;
+
+        .logo {
+          color: black;
+          opacity: 1;
+        }
+        a {
+          color: black;
+          opacity: 0.7;
+        }
+        :hover {
+          opacity: 1;
+        }
+      }
+
+      .navbar-right {
+        right: 10px;
+        top: 4px;
+        height: 40px;
+        line-height: 40px;
+        z-index: 4;
+        .register {
+          text-align: center;
+          text-decoration: none;
+          width: 50px;
+          border: 1px solid black;
+          border-radius: 40%;
+        }
+        a {
+          color: black;
+          opacity: 0.7;
+        }
+        :hover {
+          opacity: 1;
+        }
+      }
+
+      .navbar-bg {
+        z-index: 2;
+        left: 0px;
+        background-color: #fff;
+        height: 69px;
+        width: 100%;
+        border-bottom: 1px solid rgba(160, 197, 232, 0.8);
+      }
+    }
+
+    .content {
+      ul {
+        border-bottom: 2px solid rgba(160, 197, 232, 0.5);
+        .name {
+          left: 20px;
+          top: 15px;
+        }
+        .preview {
+          a {
+            text-decoration: none;
+
+            img {
+              height: 9rem;
+              width: 9rem;
+              border-radius: 50%;
+            }
+            :hover {
+              box-shadow: 0 1px 1px 1px rgb(0 0 0 / 12%);
+            }
+
+            h5 {
+              color: black;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
